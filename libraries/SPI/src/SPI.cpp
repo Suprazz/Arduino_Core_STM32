@@ -11,7 +11,8 @@
 
 #include "SPI.h"
 
-SPIClass SPI;
+//SPIClass SPI;
+SPIClass SPI(PB5,PB4,PB3);
 
 /**
   * @brief  Default constructor. Uses pin configuration of variant.h.

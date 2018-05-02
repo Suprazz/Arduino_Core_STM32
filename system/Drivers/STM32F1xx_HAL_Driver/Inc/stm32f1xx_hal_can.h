@@ -2,6 +2,8 @@
   ******************************************************************************
   * @file    stm32f1xx_hal_can.h
   * @author  MCD Application Team
+  * @version V1.1.1
+  * @date    12-May-2017
   * @brief   Header file of CAN HAL module.
   ******************************************************************************
   * @attention
@@ -711,13 +713,22 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* hcan);
   */
 /* I/O operation functions *****************************************************/
 HAL_StatusTypeDef HAL_CAN_Transmit(CAN_HandleTypeDef *hcan, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CAN_Transmit_MBOX(CAN_HandleTypeDef* hcan, CanTxMsgTypeDef *pTxMsg, uint32_t transmitmailbox, uint32_t Timeout);
 HAL_StatusTypeDef HAL_CAN_Transmit_IT(CAN_HandleTypeDef *hcan);
+uint32_t HAL_CAN_IsMboxEmpty(CAN_HandleTypeDef* hcan, uint32_t transmitmailbox);
+HAL_StatusTypeDef HAL_CAN_Transmit_IT_MBOX(CAN_HandleTypeDef *hcan,CanTxMsgTypeDef *pTxMsg, uint32_t txMailbox);
 HAL_StatusTypeDef HAL_CAN_Receive(CAN_HandleTypeDef *hcan, uint8_t FIFONumber, uint32_t Timeout);
 HAL_StatusTypeDef HAL_CAN_Receive_IT(CAN_HandleTypeDef *hcan, uint8_t FIFONumber);
 HAL_StatusTypeDef HAL_CAN_Sleep(CAN_HandleTypeDef *hcan);
 HAL_StatusTypeDef HAL_CAN_WakeUp(CAN_HandleTypeDef *hcan);
+void HAL_CAN_IRQHandler_RX_MBOX(CAN_HandleTypeDef* hcan);
+void HAL_CAN_IRQHandler_MBOX(CAN_HandleTypeDef* hcan);
 void HAL_CAN_IRQHandler(CAN_HandleTypeDef* hcan);
 void HAL_CAN_TxCpltCallback(CAN_HandleTypeDef* hcan);
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan);
+void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan);
+void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan);
+
 void HAL_CAN_RxCpltCallback(CAN_HandleTypeDef* hcan);
 void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *hcan);
 /**
