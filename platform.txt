@@ -75,9 +75,6 @@ build.usb_flags=-DUSBCON -DUSBD_VID={build.vid} -DUSBD_PID={build.pid} '-DUSB_MA
 # numeric vendor ID if available or by board's specific value.
 build.usb_manufacturer="Unknown"
 
-# Build information's
-build.info.flags=-D{build.series} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} -DBOARD_NAME="{build.board}"
-
 # Defaults config
 build.xSerial=
 build.enable_usb=
@@ -172,3 +169,15 @@ tools.serial_upload.path.linux64={runtime.hardware.path}/tools/linux64
 tools.serial_upload.upload.params.verbose=-d
 tools.serial_upload.upload.params.quiet=n
 tools.serial_upload.upload.pattern="{path}/{cmd}" {serial.port.file} {upload.altID} {upload.usbID} "{build.path}/{build.project_name}.bin"
+
+# HID upload
+tools.hid_upload.cmd=hid_upload
+tools.hid_upload.cmd.windows=hid_upload.bat
+tools.hid_upload.cmd.macosx=hid_upload
+tools.hid_upload.path={runtime.tools.STM32Tools.path}/tools/win
+tools.hid_upload.path.macosx={runtime.hardware.path}/tools/macosx
+tools.hid_upload.path.linux={runtime.hardware.path}/tools/linux
+tools.hid_upload.path.linux64={runtime.hardware.path}/tools/linux64
+tools.hid_upload.upload.params.verbose=-d
+tools.hid_upload.upload.params.quiet=n
+tools.hid_upload.upload.pattern="{path}/{cmd}" {serial.port.file} {upload.altID} {upload.usbID} "{build.path}/{build.project_name}.bin"
