@@ -418,6 +418,13 @@ GenF103.menu.upload_method.serialMethod=Serial
 GenF103.menu.upload_method.serialMethod.upload.protocol=maple_serial
 GenF103.menu.upload_method.serialMethod.upload.tool=serial_upload
 
+GenF103.menu.upload_method.HIDUploadMethod=HID bootloader
+GenF103.menu.upload_method.HIDUploadMethod.upload.protocol=maple_hid
+GenF103.menu.upload_method.HIDUploadMethod.upload.tool=hid_upload
+GenF103.menu.upload_method.HIDUploadMethod.build.upload_flags=-DSERIAL_USB -DGENERIC_BOOTLOADER
+GenF103.menu.upload_method.HIDUploadMethod.build.vect=VECT_TAB_ADDR=0x8001000
+GenF103.menu.upload_method.HIDUploadMethod.build.ldscript=hidldscript_cb.ld
+
 ###############################
 # Maple
 Maple.name=Maple series
